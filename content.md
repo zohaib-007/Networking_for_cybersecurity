@@ -327,6 +327,198 @@ Let's suppose we want to access the example.com website for the first time; then
 1.	**Recursive Method:**
  Suppose you want to access example.com. When you type the name of the site, the DNS resolver takes your query and forwards it to the Root Server. The root server further starts to read the query from right to left, which means the .com gives the direction or address to the Root Server to the next destination, which is the **Top-Level Domain**. Here, the tasks are divided according to the top-level domains. Like .com, .edu, and .pk are top-level domains, for each, a query takes place in a different box where the .com is present; similarly for .edu and so on.  After this, the top-level domain reads the query and sends it to the Authoritative Server, which holds the real IP address. This gives the real IP address back to the top-level domain; the top-level domain gives this IP address back to the root server; the root server gives the IP back to the DNS resolver; and finally, the DNS resolver gives this IP back to us.
 
+<p align="center">
+  <img src="recurcive.png" alt="DNS Working (Recurcive Method)" width="800">
+</p>
+
+2.	**Repetitive (iterative) method:** 
+In this method, the same server works differently. When we send our query to the DNS resolver, it asks for the IP to the root server. The root server doesn't know the IP address, but it knows the IP address of the **TLD server**. The root server gives back (to the DNS resolver) the IP of the **TLD server**. Again, the DNS resolver talks with the TLD server for the IP address. The **TLD server** gives it back the IP of the authoritative server. Finally, the DNS resolver contacts the authoritative server to get the **IP address**. Here, he got the desired IP address and gave it back to us. 
+This means that in the iterative method, the whole query is handled by a DNS resolver, which resolves the query step by step by making a fresh query again and again until it gets the IP.  
+**The diagram will be:**
+
+<p align="center">
+  <img src="Repetitive.jpg" alt="Common Protocols" width="500" >
+</p>
+
+# Routing:
+Now, we discuss how traffic actually moves between different networks or within a single network.
+This is another important concept in networking, where we discuss how data travels between networks or within a network. 
+
+**Definition:** The word routing means choosing or deciding the best and shortest path to travel data between different networks or access traffic outside the network. The router uses a default gateway to send and receive data from outside of a network. 
+
+### Why do we use routers?
+
+Think of a router as a device that helps in communication between different networks. Suppose 2 computers, **A** and **B**, want to communicate with each other.
+
+**Computer A IP**: 198.168.1.21
+
+**Computer B IP:** 198.168.1. 23
+
+Now, as you can see, the network part is the same, meaning both computers are on the same network, and we don't need to use a router here. We simply use a switch or a hub.
+**Now, Suppose:**
+
+**Computer A IP:** 198.168.1.43
+
+**Computer B IP:** 198.168.1.21
+
+Here, the network parts are different, which means both are on different networks, and here, we actually need a router that uses a routing table to determine where data goes if the device is outside the network. In the routing table, he found the destination address, the next hop, and the default gateway (exit door) that helps a router to understand the destination of the packets accordingly.
+
+### There are two types of routing methods: static routing and dynamic routing:
+1.	**Static Routing:** 
+A routing method in which a user decides which path should be used for a device to communicate with devices outside the network. In static routing, we have options to customise the routing table. This is useful for small networks but not a good practice for large networks. In a static routing table, the admin decides which path can be used by which device on network; then we are restricted to use only these paths, even if other better ones are available. In the routing table, we set the destination address, the subnet mask, the next hop, and the exit interface
+
+**Example:**  Route to **10.0.0.0/24** via **192.168.2.1** means the for the device **198.168.2.1** a path sets which is **10.0.0.0/24**
+
+2.	**Dynamic Routing:**
+ Here, the software itself writes the routing table and makes decisions that the device should use, which path to use for communication, using the same type of protocols like **OSPF, RIP, BGP, etc.** 
+Here again, we have two types of dynamic routing protocols, IGP and EGP:
+
+
+  *	**Interior Gateway Protocol (IGP):** 
+The network that uses dynamic routing techniques inside a network or between small networks uses IGP protocols like RIP, OSPF, etc.
+RIP: Stands for Routing Information Protocol, which uses purely the hop count to decide which path should be used. RIP tries to select the shortest hop count for the movement of data packets. The word “hop count” means how many jumps it takes for data packets to travel from one network to another. Suppose a network wants to send a data packet to another network. 
+This network has two paths, **A** and **B**. In path A, we have **5** hop counts (routers), and in path **B**, two hop counts. Here, the **RIP** protocol chose path B even if it is slow because it uses fewer hops. 
+
+     **OSPF:** Stands for Open Shortest Path First. Here, as this is sounds like, he chose the shortest path first, then the other, if         this is not available. 
+
+  *	**Exterior Gateway Protocol (EGP):**
+EGP is used when we want to connect two different large networks. This is mainly used to connect different WAN networks for the exchange of data packets. Like our ISPs use the EGP to communicate with each other. The only protocol used in this type is **BGP.**
+
+     **BGP** stands for Border Gateway Protocol. This is a very powerful protocol used to connect different large companies' networks. It      uses special technologies to handle millions of routes at the same time. The main reason behind the only protocol used to connect         huge networks is that, it is very important while connecting different large network, to speak the same language, when the protocol       is different we get trouble to make communications.
+
+<p align="center">
+  <img src="BGP.png" alt="Routing">
+</p>
+
+
+# Switching:
+Now, we are going to talk about the data movement within a LAN network. This means that a switch is used to connect different hosts within a network. This is a Layer 2 device and connects different hosts that communicate using a Smart Switching Table or CAM (Content Addressable Memory) table with each other. The alternative to switches is a traditional hub, which is used in a LAN network, but the problem is that when we have to send a data packet to a particular host, the hub broadcasts this data to all the present hosts in the network. The switch solves this problem and sends data packets only to the particular host whose **MAC** address matches the MAC address in its switching table. All the communications within a network are made by using the physical MAC address. 
+
+Now, let's suppose two computers, **A** and **B**, are in a network. Computer A wants to send a data packet by putting its MAC address in the header of the data packet. The switch receives this data packet and forwards it to the destination host. **But what if the switch doesn't know the MAC address of the destination host?**
+
+Then here comes the concept of Unicast Flooding.
+* **Unicast Flooding:** In this technique, the switch receives the data packet and creates a copy of the data. After this, it broadcasts this data to all the devices in the network, except the one it came from. The destination device responds to this data packet and sends a green signal back to the switch. In this process, the switch finds the unknown MAC addresses and updates the CAM table for the next time. 
+
+
+#### Types of CAM or switch tables:
+1.	**Static CAM:** 
+The switch table is managed by an administrator. He enters the device's MAC addresses and the port numbers manually. Because we need two things for communication. The port number and the MAC address.
+
+Like: 
+
+MAC:  AA:BB:CC:11:22:33 (PC-1)
+
+Port:   1 
+
+2.	**Dynamic Switching CAM**
+In dynamic switching, the CAM table is managed by the software itself by using these three ongoing phases:
+
+**A. Learning phase:** Whenever a device connects to the switch and sends data packets to other devices, the switch learns about the MAC address of the destination and the source, and adds it to the CAM table for the next time. 
+
+**B. Flooding:** This is actually unicast flooding, which means the switch finds the unknown MAC address by sending a copy of data packets to all the host devices and specifies the port numbers also. 
+
+**C. Forwarding:** Once it finds the MAC address, it also adds its port number so that if another host wants to communicate with this host, the switch skips the flooding process completely.
+
+### Different modes used by the switches: 
+These are techniques that switches use to enable communication between different hosts.
+
+* **Cut-through mode:** When the switch sees the **MAC address** of the destination host, it immediately sends the whole packet without waiting for the remaining data packets. It reads that the first **6 bytes** are the MAC address and starts the forwarding process.
+
+* **Store and forward mode:** In this technique, switches first store the data and then forward it to the desired destination host. This helps to check errors in data packets because when data is stored, it automatically checks for errors and then forwards the data.
+
+* **Fragments-free:** In this mode, the switch reads the first **64 bytes** of data and then forwards it without creating fragments of data. In Ethernet networking, the minimum healthy size of data is the first **64 bytes (512 bits)**. If there are any errors in the data, these are highlighted here, and the data is broken into tiny pieces called runt frames. These are considered garbage in data.
+
+### Collision Domain: 
+
+The area or section where a collision happens when two devices start communicating through one shared line in a network. Think of this as a single one-line bridge. A car starts moving from the left side, and a car comes from the right side, and both collide in the middle of the bridge. Similarly, a data collision occurs in the middle of the shared line, and the data is lost in this instance. 
+
+However, the modern switch solves this issue by dedicating a single port to a single host, ensuring accurate and fast movement of data without packet loss. 
+
+# VLANs: 
+Stands for Virtual Local Area Networks. We actually isolate one physical LAN network into multiple virtual LAN networks. We set the number of host devices in each virtual network. 
+**Example:**
+
+Suppose you are in a building where almost **60** host devices are connected through a switch and communicate with each other normally. Here, you have **10** host devices for **HR**, **10** for the **product managers**, and the remaining for the **IT desk**. 
+As you know, sometimes we have to broadcast some type of data packets in a network, like ARP requests; then all the host devices get this data and process it accordingly, but what if the data just relates to the **IT** department or HR department only?
+
+Or if you don't want the other hosts to receive this data for security concerns, then here **VLANs** come in. 
+
+By implementing VLANs, we turn one physical **60-port switch** into three separate virtual mini-switches. HR, Product Managers, and IT each get their own private network sandbox. They get full privacy, and their local network traffic never leaks out to disrupt the other departments.
+
+#### Why is this best for security purposes? 
+Suppose a hacker gets access to the guest **Wi-Fi** or one part of the VLAN, and then it's not a big deal for the hacker to reach the company server. But what if we isolate the network between the guest Wi-Fi and put a strong layer so the users or hackers don't cross it easily? Here are the VLANs that help us to do this task easily. 
+
+
+* **VLAN ID:** 
+Every virtual network has its own special ID called the VLAN ID. For example:
+
+**IT department:** VLAN 40
+
+**HR department:** VLAN 10
+
+**Product managers:** VLAN 10
+
+#### Can a host from the HR department communicate with the host in the product manager department? 
+
+So the answer is no, because this now becomes a separate network, and we need a router or Layer 3 switch for data sharing to the outside from a virtual network. This is also called inter-VLAN routing. 
+
+* **Access port:** 
+A port where you can access all the host devices within a virtual network. The HR department has an access port from which we can talk with all the hosts inside the HR department VLAN. 
+
+* **Trunk port:**
+A physical port that connects all the VLANs in a physical local network through a single line. Think of this as a bus topology, where all the host devices are connected to one main line. Similarly, here, all the virtual networks are connected to one main line called the trunk port.
+
+
+# NAT & PAT
+Now, we will discuss the routing process in today's modern routers. We will cover how private and public IP work together to give us access to the global Internet.
+
+*	**NAT:** Stands for Network Address Translation. This is the process of changing the IP addresses while the data moves between networks. Suppose you are on a local network where you have a private IP address, **198.168.1.50**. When you want to access a website using your private **IP**, the request goes from your router to the desired web server. When the server tries to respond to the related IP address, it isn't able to map the IP address, which means it doesn't know about your private IP because the private IP address only works within the network. 
+Here, **NAT** solves this problem and converts a private IP address to a public IP address so that you will be able to access the Internet. Actually, your router has only one public IP. When you send a request to access the Internet, the request goes from your mobile to the router. The router remembers your private IP and puts your request on the public IP address. After getting the response, the router again sends you the response by matching your private IP address.
+
+**Private IP:** 198.168.1.32 (Host) <-->  **NAT** <-->  **Public IP:** 175.23.1.45 (Router)
+
+
+When the desired website sends the response back, NAT again changes the public IP to a private IP, and the router sends the packet accordingly. 
+
+#### But in NAT, we have a problem: 
+
+Suppose two devices, A and B, are on the same local network, having private IPs 
+**198.168.1.50 and 198.168.1.52**
+
+Now, for example, both host devices want to access the same website at the same time. The query goes to the router, and **NAT** translates their addresses to one public address. But when the website responds, the router gets confused about which packet belongs to which host device. Because the website only sees your public IP.
+
+* PAT: Here, the advanced NAT means PAT (NAT overload) comes in. This stands for Port Address Translation. 
+This technique translates your private **IP** to the **public IP** as well as assigns a unique port number. This port number will also be changed when the router gets a response back from the server, and this is known as the outside port number. 
+
+Now, let's suppose two hosts, **A** and **B**.
+
+                         
+                         Systems	        Inside Private IP	       Inside Port
+                         
+                           A	              198.168.1.3	              4100
+                           B	              198.168.1.21   	          4100
+
+
+#### After PAT translation:
+
+                        Systems	            Outside Public IP	       Outside Port:
+                        
+                          A	                  23.43.155.21    	          10001
+                          B	                  23.43.155.21       	      10002
+
+
+#### After getting a response back:
+
+Destination IP 23.43.155.21: 10001 and 10002
+By matching the port number at the router end and again translating the IPs, both packet sets are delivered to the same outside ports. 
+
+Here, if you see, the inside ports 4100 for both hosts are the same. That's why assigning unique outside ports is crucial. Otherwise, the packet is again lost due to unclear destination ports. This happens commonly when we try to browse the same type of service; the outgoing service uses the same ports by default. 
+
+Here, the port number is a specific room number, and the public IP is the house number. This means two systems with one public IP address get a response from the Internet simultaneously by attaching the port numbers. 
+
+
+
+
 
 
 
