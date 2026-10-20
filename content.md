@@ -509,12 +509,28 @@ Now, let's suppose two hosts, **A** and **B**.
 
 #### After getting a response back:
 
-Destination IP 23.43.155.21: 10001 and 10002
+Destination **IP** 23.43.155.21: **10001 and 10002**
+
 By matching the port number at the router end and again translating the IPs, both packet sets are delivered to the same outside ports. 
 
-Here, if you see, the inside ports 4100 for both hosts are the same. That's why assigning unique outside ports is crucial. Otherwise, the packet is again lost due to unclear destination ports. This happens commonly when we try to browse the same type of service; the outgoing service uses the same ports by default. 
+Here, if you see, the inside port 4100 for both hosts is the same. That's why assigning unique outside ports is crucial. Otherwise, the packet is again lost due to unclear destination ports. This happens commonly when we try to browse the same type of service; the outgoing service uses the same ports by default. 
 
-Here, the port number is a specific room number, and the public IP is the house number. This means two systems with one public IP address get a response from the Internet simultaneously by attaching the port numbers. 
+Here, the port number is a specific room number, and the **public IP** is the house number. This means two systems with one public IP address get a response from the Internet simultaneously by attaching the port numbers. 
+
+### Why is the port number important?
+
+System A wants to access **Google.com** by having the public IP **23.43.155.21** and port number 4300. Similarly, System B wants to access **Facebook.com** by having the same public IP and port number 5400. When both servers send a response back, the traffic will be divided according to the port numbers. So, systems have different responses. 
+
+To conclude the **PAT**, this is a process using one **public IP** address by many devices and separating them by giving unique port numbers to use the connections.
+
+# VPNs:
+This is also an important topic because most enterprises and companies worldwide use VPNs for secure data transmission between users and the company database. This also helps to put a security layer between two different networks. 
+
+### Definition: 
+A Virtual Private Network **(VPN)** is the process of encrypting data and making a secure connection through a secure tunnel so that the data remains secure from the outside network or the Internet
+
+Suppose you are connected to your local network or to a library network, and you want to access sensitive information from the Internet, such as performing a bank transaction. Here, any other person on the same network can steal your credentials and track your online activities.
+#### The request process will be:
 
 
 
