@@ -70,19 +70,31 @@ If we want to understand these two models in one line, then we simply say that t
 In the OSI model, we cover the different **7** layers that interconnect with each other and do their own duty so the next layers receive the data and understand it. 
 The TCP/IP model divides the whole network into **4** different layers. Same as the **OSI** model, in the TCP/IP model, each layer can talk with its next layer and the previous one.
 
-##	OSI model:
+##	1\. OSI model:
 OSI means Open Systems Interconnection. The word "open" means any device or node in a network that is capable of accessing information or data from anywhere. The word "interconnect" means that the devices or nodes are connected.
 In this model, we will study the 7 layers of data processing.
 We studied it from bottom to top, which means we talked about the 7th layer first and then the 6th, 5th, and so on. The reason is that, when we send data or a request to a device or something, it starts to proceed in the sender device from layer **7 to 1**, and when the receiver receives the data, the data proceeds from layer **1 to 7**.
 The seven layers are:
 
-7. **Application layer:** This is where the user directly interacts with the application interface to send data or a request. For example, we send an **HTTP** or **HTTPS** request to a web server; here, the interface of the web and our action to send a request and to work on related protocols- all this is handled in this layer. Similarly, for the SMTP request for the email server, the DNS request for domain resolution, etc.
-6. **Presentation Layer:** This layer is responsible for receiving data from the application layer and translating it for understanding between the network. It translates the data according to the application standard. It also handles the formatting of data, compression if data is large, and encryption/decryption of data for security purposes. The common protocols used by these layers are: **SSL** for website security, **JPEG** for conversions, etc.
-5. **Session Layer:** After the data is ready to send, we need to establish a session between the sending point and the destination. The session layer is responsible for establishing the session, maintaining it, and terminating it. This layer uses the NetBIOS, **PPTP**, RPC, etc. protocols. 
-4. **Transport Layer:** When everything is ready, we need to transport the data or request. The transport layer decides the reliable delivery path and breaks data into packets for safe and faster delivery. This layer also controls the flow of data, error checking and retransmission, and packet assembling. There are two important protocols used by this layer: **TCP** (Transmission Control Protocol) and UDP (User Datagram Protocol). **TCP** is more reliable than **UDP** because it ensures the data is safe and sent without errors or loss of packets, but it is slower than **UDP**. **UDP** just provides us with fast speed and doesn't care about errors in data, loss of packets, etc. **UDP** is mostly used in live streaming and video calling.
+7\. **Application layer:** This is where the user directly interacts with the application interface to send data or a request. For example, we send an **HTTP** or **HTTPS** request to a web server; here, the interface of the web and our action to send a request and to work on related protocols- all this is handled in this layer. Similarly, for the SMTP request for the email server, the DNS request for domain resolution, etc.
 
-![How OSI model process data](OSI model.png)
+6\. **Presentation Layer:** This layer is responsible for receiving data from the application layer and translating it for understanding between the network. It translates the data according to the application standard. It also handles the formatting of data, compression if data is large, and encryption/decryption of data for security purposes. The common protocols used by these layers are: **SSL** for website security, **JPEG** for conversions, etc.
+
+5\. **Session Layer:** After the data is ready to send, we need to establish a session between the sending point and the destination. The session layer is responsible for establishing the session, maintaining it, and terminating it. This layer uses the NetBIOS, **PPTP**, RPC, etc., protocols. 
+
+4\. **Transport Layer:** When everything is ready, we need to transport the data or request. The transport layer decides the reliable delivery path and breaks data into packets for safe and faster delivery. This layer also controls the flow of data, error checking and retransmission, and packet assembly. This layer uses two important protocols: **TCP** (Transmission Control Protocol) and UDP (User Datagram Protocol). **TCP** is more reliable than **UDP** because it ensures the data is safe and sent without errors or loss of packets, but it is slower than **UDP**. **UDP** just provides us with fast speed and doesn't care about errors in data, loss of packets, etc. **UDP** is mostly used in live streaming and video calling.
+
+   ![How OSI model process data](OSI_model.png)
    
+3\. **Network layer:** This is where the data's logical addresses (IP addresses) are assigned to the data for exact distinction. It also handles the best routes for data. The IPv4, IPv6, ARP, and BGP protocols are used in this layer.
+
+2\. **Data Link Layer:** This layer uses the physical addresses of the device for identification or destination. The data here is broken into frames, and frames contain the physical address of the data and the sequence of the data. This layer removes all the errors from the data and makes it ready for final delivery. In this layer, the connection for the physical layer is also managed.
+
+1\. **Physical layer:** Now, it is time to transfer the raw bit stream of data over the physical media. The data is ready to travel through the physical transmission methods. Here, data conversion is also performed: if the transmission medium is a wire, then the data is converted into electrical signals; for WI-FI and fibre optic, the data is converted into waves and light signals.
+
+![Camparison between OSI and TCP/IP model](Camparison%20table%20(OSI%20TCPIP)png)
+
+
 
 
 
