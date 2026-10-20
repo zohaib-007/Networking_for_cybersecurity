@@ -81,7 +81,7 @@ The seven layers are:
 5. **Session Layer:** After the data is ready to send, we need to establish a session between the sending point and the destination. The session layer is responsible for establishing the session, maintaining it, and terminating it. This layer uses the NetBIOS, **PPTP**, RPC, etc. protocols. 
 4. **Transport Layer:** When everything is ready, we need to transport the data or request. The transport layer decides the reliable delivery path and breaks data into packets for safe and faster delivery. This layer also controls the flow of data, error checking and retransmission, and packet assembling. There are two important protocols used by this layer: **TCP** (Transmission Control Protocol) and UDP (User Datagram Protocol). **TCP** is more reliable than **UDP** because it ensures the data is safe and sent without errors or loss of packets, but it is slower than **UDP**. **UDP** just provides us with fast speed and doesn't care about errors in data, loss of packets, etc. **UDP** is mostly used in live streaming and video calling.
 
-
+![How OSI model process data](OSI model.png)
    
 
 
