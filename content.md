@@ -288,14 +288,14 @@ These are sets of rules and regulations used by a port that can send and receive
 the IP address, we use the DNS (phone book), and so on.
 
 <p align="center">
-  <img src="protocols.png" alt="Common Protocols" width="300">
+  <img src="protocols2.png" alt="Common Protocols" width="500">
 </p>
 
 These protocols are responsible for reliable and secure data movement by checking for errors, lost packets, retransmission, and ordering the data.
 
 The TCP protocol is connection-oriented and uses a three-way handshake technique to talk with a device. 
-Send a **SYN** request and get an ACKNOWLEDGEMENT with SYN and then send another **SYN** for ready to connect. We use it when we need perfection in data. This is much slower than the UDP use for when data is important, like sending an email or chatting with a friend.
-On the other hand, when we all focus on speed, we use the **UDP** (Connectionless) protocol. Here, the protocol doesn't care about the order of packets, retransmission, and error checking; it just sends data speedily. This is used for video calling, live streaming, live games, etc.
+Send a **SYN** request and get an **ACKNOWLEDGEMENT** with **SYN** and then send another **SYN** for ready to connect. We use it when we need perfect data. This is much slower than the UDP use for when data is important, like sending an email or chatting with a friend.
+On the other hand, when we all focus on speed, we use the **UDP** (Connectionless) protocol. Here, the protocol doesn't care about the order of packets, retransmission, or error checking; it just sends data speedily. This is used for video calling, live streaming, live games, etc.
 
 3.	**Services:**
  When we send a request through a specific port using a specific protocol, the other side, which is waiting for the connection, is known as a service. This is actually a running task on the server side. Like in the **HTTPS protocol**, the web server is waiting for the connection, and the process running during this is called a service. 
@@ -314,6 +314,18 @@ SSH Server                      (SSH)
 Mail Server                     (SMTP)
 DNS Server                      (DNS)
 
+# DNS:
+Now, we will discuss about the DNS, which is essentially a book that maps IP addresses to their corresponding names. DNS stands for Domain Name System. Before DNS, the only way to browse a website or information on the Internet was to use the corresponding IP address to visit the specific site. After the repeated increasing of the website in the whole world, it becomes difficult to remember the IP address of each one. The human mind interacts with pictures and letters easily, but remembering numbers, especially when there are too many, becomes difficult. After that, the system of domain names was introduced, where we gave a unique name to every IP address. To find a domain by its name, we use the Domain Name System(DNS), which is responsible for giving us the IP address of the corresponding domain. 
+Let's suppose we try to access the Google.com website. There are two ways to access this site: one by its name, the second by its IP address (8.8.8.8). 
+
+When we try to access it by its name, the DNS system works for us to convert our name into the corresponding IP address and gives us back the IP to access the information inside this IP(website). 
+
+This process only happens when we try to access a website for the first time because a memory in our ISP has the IP address of the recently visited website, which is called cache memory. 
+
+Let's suppose we want to access the example.com website for the first time; then this process happens in two ways: the recursive method and the iterative method. 
+
+1.	**Recursive Method:**
+ Suppose you want to access example.com. When you type the name of the site, the DNS resolver takes your query and forwards it to the Root Server. The root server further starts to read the query from right to left, which means the .com gives the direction or address to the Root Server to the next destination, which is the **Top-Level Domain**. Here, the tasks are divided according to the top-level domains. Like .com, .edu, and .pk are top-level domains, for each, a query takes place in a different box where the .com is present; similarly for .edu and so on.  After this, the top-level domain reads the query and sends it to the Authoritative Server, which holds the real IP address. This gives the real IP address back to the top-level domain; the top-level domain gives this IP address back to the root server; the root server gives the IP back to the DNS resolver; and finally, the DNS resolver gives this IP back to us.
 
 
 
