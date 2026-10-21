@@ -98,6 +98,14 @@ The seven layers are:
   <img src="Camp_OSI&TCPIP.png" alt="Camparison between OSI and TCP/IP model">
 </p>
 
+## 2. TCP/IP model:
+This model is also called the base of the modern Internet. The TCP stands for Transmission Control Protocol, and IT stands for Internet Protocol. We study the theoretical and practical implementations of a model to establish a network. 
+We studied this model in 4 layers from bottom to top, meaning 4th, 3rd, 2nd, and then 1st.
+**4\. Application layer:** This layer combines the L7, L6, and L5 of the OSI model. All the processes are the same as in the OSI model. This layer provides the interface between the user and the application, formatting the data and managing the sessions. This also works on the same protocols as in the OSI model layers.
+**3\. Transport Layer:** This decides the reliable delivery method of data transmission and works the same as the transport layer of the OSI model.
+**2\. Internet/network layer:** This decides for the best routes and manages the logical addressing, same as the network layer in the OSI model.
+**1\. Network Access layer:** The functionality of this layer combines the 2nd and 1st layers of the OSI model. This manages the physical addressing and makes ready the data for transmission through the physical media.
+
 # IP Addressing:
 Now, we are going to cover another important topic: IP addresses. 
 This is also important for discussion, as well as for our device security and the way communication between devices is established, which determines the range within which devices or nodes can send or receive data. 
