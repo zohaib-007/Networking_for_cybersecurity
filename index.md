@@ -52,8 +52,8 @@ For a cybersecurity or ethical hacker, Lerner, it is very important to know how 
    * **Packet Switching:** In this technique, data travels between the sender and receiver by creating small segments of data. Each data packet receives the destination address and begins moving without considering the other data packets. 
 
 ### There are two types of packet switching: 
-       * **Connectionless or datagram approach:** In this method, data packets start to move just by receiving the destination address. Every packet of data uses a different path in the network to reach the destination address. 
-       * **Connection-oriented or virtual circuit:** During this, a connection has been established between the sender and receiver. A virtual path has been created, and each data packet should follow this exact path to reach the destination address.
+   * **Connectionless or datagram approach:** In this method, data packets start to move just by receiving the destination address. Every packet of data uses a different path in the network to reach the destination address. 
+   * **Connection-oriented or virtual circuit:** During this, a connection has been established between the sender and receiver. A virtual path has been created, and each data packet should follow this exact path to reach the destination address.
 	   
 **5\. Bridge:** This is used to connect two different LANs so they can also send and receive data within two or more networks. We usually use it to connect two LAN networks.
 
@@ -64,6 +64,7 @@ For a cybersecurity or ethical hacker, Lerner, it is very important to know how 
 **8\. APs:** Stands for Access Points, which means when we want to connect our main devices like computers, servers, and printers with wires, but we also want the other devices to access the same network using wireless technology, then we use the APs with our wired router or switch. This creates a wireless broadcast that allows the other devices to connect to the same network.
 
 **9\. Modem:** For modulation and demodulation. Modulation is used to convert the computer signals into readable analogue signals for our ISP (Internet service provider) so we can access the Internet. Similarly, the incoming analogue signals from our ISP are translated through demodulation. 
+
 **10\. Gateways:** This is the entrance point for each network, which is used to translate the protocols. This is most important when we connect our network to another network, which is based on a communication protocol that is entirely different. We can also say this as a translator that translates the traffic of one network according to another network's communication protocols. It can be a dedicated physical device or software that is installed on a computer.
 
 # OSI & TCP/IP model:
