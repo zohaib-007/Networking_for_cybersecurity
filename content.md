@@ -569,4 +569,299 @@ With Split Tunnal (VPN):
 Other traffic on same device:
 
                          Our data --> ISP --> Destination
+						 
 * **Full tunnel:** All of your traffic will move through the secure VPN tunnel
+  
+                         Our data --> VPN --> destination
+
+3.	**VPN Server:** The place where our data moves after leaving the source host. When we access sensitive data, the data is encrypted before moving to the **VPN server.** Here, data is decrypted and forwarded to the desired destination. This provides an extra layer of security because our ISP or network provider don't know about our location because they see the data originating from the server of the VPN.
+
+#### This means it changes our location also.
+
+                               Computer ----> Encrypted VPN Tunnel ----> VPN Server ----> Destination
+
+4.	**Authentication:** This is the process of checking which users actually get access to the particular data. It integrates the password and username before the user uses the VPN service.
+
+### Main Types of VPNs:
+•	**Remote Access VPN:** This is a type of VPN that provides a secure connection within a local network. This is normally used for remote tasks. Suppose you are at home and want to access your company server remotely. Then, you need a remote access VPN for a secure connection.
+
+•	**Site-to-Site VPN:** This is used when we want to secure all the traffic between two different networks. Enterprises and companies use it between their different branches for secure communication. This is also called router-to-router VPN because when we connect two networks, we need a router on both networks; this VPN is placed between these routers for secure VPN based communication. 
+
+                                                 Router 1  --->   VPN  --->  Router 2
+
+
+### VPN protocols:
+Think of these as the protocols in a network work for, how data moves, and how connections are made by using specific rules and regulations. Similarly, the VPN protocols decide the delivery of data, encapsulation, encryption, and tunnelling, and decide which ports should be used. 
+
+The VPN and the Protocols are two different things; the VPN itself provides us with an infrastructure and guides the system on how this works when a device or network tries to connect.  While the protocols are the inner system that handles the actual connection. 
+Some common protocols, such as **PPTP, IPsec, OpenVPN,** and **WireGuard,** are used by modern VPNs.
+
+### Features/benefits of using a VPN:
+1.	**Secure Connection:** By using a VPN, we can browse the Internet without being tracked. VPN wraps our standard online traffic into a secure tunnel, and through the encryption process, it makes it unreadable for our Internet provider. Suppose someone gets access; they still need a special key to decrypt this data to make it readable. 
+VPN also masks our IP into a public IP address that points to the traffic coming from the VPN server, which means protecting our location, IP address, and data packets on the Internet. 
+2.	**Bypass Region Restrictions:** VPN also provides the benefits of getting access to the kind of data that is not available in our region by changing our location. This means it masks our IP and is set according to where the particular content is available. 
+3.	**Site-to-Site protection:** Suppose your company has two networks, he want a secure communication between these two networks. VPN provides this facility and also creates a secure communication channel between two networks. 
+4.	**Remote Access protection:** Suppose you are at home and want to access your company database, or your company demands work from home, then the VPN again helps the user by providing a secure private connection for remote work. 
+
+
+### How a VPN actually works?
+
+The VPN works in four steps whenever a device tries to connect to the Internet through the VPN.
+1.	**The digital Handshake:** When we open a VPN application and push the connect button, the process behind this button is actually a digital handshake. In this process, the user asks for the VPN server to use the connection protocol service, like AES 256(encryption standard). After this, the VPN and our device both make a cryptographic symmetric key that is used to encrypt and decrypt the data at the server and the user end. 
+            Both share public keys, and the VPN starts to serve. 
+2.	**Encapsulation:** This is the process by which the VPN wraps our data in a secure tunnel so that no one on the same network can access it. By putting an extra layer of security on our original data packets, encapsulation makes it non-traceable by other users.
+3.	**Encryption:** In this step, our data turns into a raw format and becomes unreadable without a special key, which was generated at the handshake process. This uses a symmetric protocol to encrypt data like **ChaCha20** or **AES 256**, which is used to generate the unreadable cipher text 
+4.	**Decryption and forwarding:** Again, when data is ready for forwarding, this raw data turns into the original form and becomes exactly like when it was generated from the user device. The destination gets the original data packets, and when the VPN gets a response back, the encryption/decryption procedure works inversely.
+
+# Firewalls:
+This is another important software or device for network security. We use firewalls to keep our network protected from unauthorised access. We monitor all traffic and set rules to drop and reject connections. 
+
+**Definition:** 
+A wall that is placed between the access port and the external network traffic(internet). This is essentially a security guard for the entrance gate of your network, which checks all incoming/outgoing traffic and filters it according to predefined rules set by administrators. 
+Basic firewalls can check only the packet headers and allow data movement by checking the IP address and Port Numbers, but modern firewalls offer **Deep Packet Inspection (DPI)**, which provides the facility of checking the actual payloads inside the incoming/outgoing data packets.
+
+#### The firewall placement in a network will be:
+
+         -------- Internal traffic (LAN network) ---------- Firewall---------External traffic (Internet)--------
+
+### Host firewall and network firewalls: 
+This can be for a single host and for a whole network. The Windows firewall by Microsoft on our computer is actually software that helps to block the malicious traffic from external sources. 
+
+The network firewalls can monitor the whole network and provide us with comprehensive features to customise the incoming/outgoing traffic. This would be software, hardware, or a mixture of both. For the best security experience for a network, we use dedicated hardware firewalls and manage its thorough dedicated **OS**. 
+
+### Types of firewalls: 
+#### 1.	Static Packet Filtration Firewalls:
+This is the most common type of firewall at **layer 3** (OSI model) and is also known as a stateless firewall. This means it treats each incoming/outgoing packet separately, even if the packets' destination/source addresses are the same every time. It manages the connections only by checking the headers of the packets. In packet headers, it checks:
+
+* Source IP
+* Destination IP
+* Source Port
+* Destination Port
+* Protocol type
+#### It can block specific IPs, ports, and protocols. 
+
+**Suppose:**
+
+<p align="center">
+  <img src="firewal_rules.jpg" alt="Firewall rules">
+</p>
+
+The word **Drop** means to reject the packet without sending the signal to the user, and **Deny** or reject means to reject the packet and also inform the user with an error message. 
+
+#### 2. Stateful inspection firewall (layer 4):
+This firewall uses a state table that holds the record of the active connections and allows the incoming traffic based on the outgoing traffic.
+
+                                            User     <---->      Firewall     < ----->     Google.com
+
+	
+means the user sends a packet towards the Google server, and obviously, when Google replies, the traffic will be authorised, and the firewall will check the state table and allow the incoming packets automatically. This is less secure because it keeps an eye on the active connections and doesn't care about the payloads or actual data inside packets. 
+
+#### 3. Proxy firewalls: 
+This is the layer 7 firewall. It is placed between our network and the external network. Instead of each traffic going directly from your device to the destination, the firewall catches this first and checks for the authenticity of data packets, and then these forward the destination.
+                             
+This means that all the outgoing traffic and incoming traffic must interact with the firewall first. No one knows about the internal traffic.  This can perform packet filtering as well as handle other protocols like **HTTP, DNS, HTTPS,** etc., at the application level. 
+#### 4. Next Generation firewall(NGFW): 
+This is the firewall that is used by enterprises nowadays. This provides each and every feature that is useful for network security. From basic packet filtering to deep packet inspection, intrusion detection, packet analysis, link filtering, and virus/malware detection. 
+This provides comprehensive security features and covers the **3** to **7** layers of the **OSI model.**
+
+#### 5. Hybrid Firewalls:
+This combines the **2** or more firewalls in a single **LAN** network. This provides us with multiple security features for each virtual LAN in a single physical network.
+
+
+### Working of a firewall: 
+1.	**Monitor traffic:** The firewall monitors the incoming/outgoing traffic and decides which allows the network and which does not, according to the rules of the firewall. It can check the packets for basic filtering and perform deep inspections to detect unauthorized access and malicious payloads. 
+2.	**Rules check:** After checking the packets, the firewall checks for the rules of data movement. The rules tell the firewall which type of traffic should pass and which type of traffic should not. These can be customised by the administrator and set by default.  
+The default rules:
+
+       • **Allow rule:** Allow the specific traffic and block all the other traffic, incoming or outgoing. This is more secure
+           Suppose a fire in a firewall the source port **443** is allowed. It allows only **HTTPS** traffic for the network. All the                other traffic, FTP, HTTP, SMTP, etc, will be blocked automatically.
+  	
+       • **Deny Rule:** This is the opposite of the Allow rules, which means it denies only the specific traffic and allows all other                traffic to carry about the payloads inside the data packets. This is less secure, that's why.
+  	
+  	   • **Drop rule:** This rejects the traffic without showing any error to the user. 
+ 
+4.	**Action:** After checking the rules, the firewalls allow, drop, and deny the traffic according to the rules.
+
+
+### How hackers can abuse the firewalls:
+Firewalls set the security policies for inbound and outbound traffic, but still, the attacker can intercept the traffic and steal the data.
+1.	**Weak configurations:** Sometimes, the administrator sets the wrong rules or mismatched rules, and the attackers, by continuously performing different types of attacks, find cracks in the weak configuration and enter the network.
+2.	**DoS attacks:** Suppose an administrator allows HTTPS traffic. The attacker sends the HTTPS request continuously until the software or hardware firewall crashes. After this, he can enter the network easily.
+3.	**Security patches:** By finding the vulnerabilities and loopholes in the firewall software, the attacker can hack the firewall, change its rules, and interrupt the traffic. That's why we immediately update the software and continuously check the rules.
+To conclude, the firewall is a basic and fundamental need for network security. The repeated increases in digital networks and remote networking require us to use firewalls to prevent unauthorised access and manage the incoming/outgoing traffic.
+
+# IDS and IPS:
+Now, we are moving towards advanced network security. The previous security software or devices were firewalls, which we covered so far, but in this security operator, we have a problem: the firewalls check the packet headers and payloads and give access to enter the network according to predefined rules.
+
+An attacker puts malicious code in an authentic service like HTTPS, SMTP, etc, and bypasses the firewall security. The attacker bypassed the firewall by sending too many requests from the same system. Now, we have advanced security operators who can secure a network by providing more control over network security. 
+
+### 1. IDS:  
+Before we move, let's understand what **intrusion** means. Unauthorised access that tries to steal, damage, and misuse the data from a computer system or a network.
+**IDS (Intrusion Detection System)** 
+
+This is a system that helps detect unknown or unauthorised attempts to enter a system or network. This only detects unknown entries, like someone trying to compromise the system or trying to steal data, etc, and informs the administrator. This system does not protect the network or device by itself. 
+Think this is like a person who gets locked inside a room, and he doesn't have keys; he just shouts out for help; he doesn't unlock the door itself. Similarly, this system just warns the administrator but doesn't stop the attacks. 
+
+#### Placement:
+
+                                          Internet       --->    IDS     ---->         Company network
+
+### How does this work?
+Suppose a hacker wants to check the open ports in a system. He continually checks for open ports by sending packets. What the IDS sees:
+
+     10K ports scanned in a very short time ---> Administrator Get Alert ---> Attack continues until someone stops it. 
+
+### Types of IDS: 
+There are mainly two types of IDS:
+
+   * **Host IDS:** A system that works for only a single host. It is installed on specialised systems, such as server computers, monitoring systems, and host computers. We can view the running processes, check the system log, and so on.  
+		
+   * **Network IDS (NIDS):** An intrusion detection system that is used to monitor the whole network. It can detect unauthorized access, malicious activities, and attempts to scan the network, among other things. It can just detect and inform the administrator. 
+Actually, these IDS are not directly involved in the network. It's just like a security camera in a home that detects the activities and shows them to the controller but does not control the activities directly. 
+
+### 2. Intrusion Prevention System(IPS): 
+This system works the same as the IDS, but instead of informing the administrator, it directly controls the activity by taking real-time actions. 
+Think of this as a security guard at the main gate of a house. If a stranger wants to enter the home, the guard can ask the person, "Who are you?" Why do you want to enter the home?
+If he feels something is suspicious, he immediately takes action and stops the person at the gate. 
+The IPS sits in the main line of the system because the data packets first get a verification stamp, then reach the destination in the network. 
+
+### Types of IPS:
+• **Network IPS:** **NIPS**detects and stops the whole network traffic. It can detect unknown traffic, malware, system behavior, etc. After finding something suspicious and out of normal behavior, it will detect it and stop immediately before it affects the system. 
+
+• **Host IPS:** NIPS is used to protect only one system. This will be a server or a administrator system in the network. **NIPS** does the same job as **NIDS,** but instead of informing the user, it automatically stops the attacks or manages the system security. 
+
+### Types of detection methods in both:
+Both **(IPS, IDS)** have the same types of detection methods. The difference is that the IDS only detects and informs the administrator, while the IPS can stop suspicious activities by itself. 
+
+1.	**Signature-based detection:** In this type, IDS/IPS detects suspicious attacks by matching the footprints of existing attacks. Whenever an attack happens, the IDS/IPS stores its pattern so that the system will detect and stop it. It works only for known attacks and fails when a new attack happens. 
+**Example:**
+
+         A virus attack on a system, and the random string starts from H4G2GS#IW/J. The signature-based detection system
+  	     detects this random string and stores it for future similar attacks.
+  	
+3. **Anomaly-based detection:** This detects what normal behavior looks like. If something happens that is unusual, the system detects it and generates an error. 
+**Suppose:**
+
+            Normal traffic on a server is one thousand per hour; after some time, it goes to 5 thousand per hour.
+            This looks unusual, and an anomaly-based system detects it as a possible DoD attack.
+   
+4. **Behavior-based detection:** This system keeps a record of normal behavior, such as a normal amount of incoming traffic in a network, user login time, working hours, etc.
+ **Example:**
+   
+             Before working hours, someone tried to access the company database and made 200 wrong password attempts
+             within an amount of time. The behaviour-based system detects it and generates an alert or stops possible
+             brute-force or password-cracking attacks.
+
+### The limitations of these systems (IDS/IPS):
+* False positives: Sometimes things go wrong, but the IDS/IPS feels everything is normal.
+* False negatives: Sometimes everything is normal, but the system flags a threat. 
+For example, the normal behaviour for the system is 30GB/hour usage. During updating or creating a large copy of data, the system pops up an error that something went wrong.
+
+# Network Monitoring System:
+Suppose you have a network of **50 computers**  and you want to monitor the use of data, check whether the connections are secure or not, monitor malicious activities, keep an eye on authorised access, etc 
+
+#### Is it possible to check each system for monitoring these activities?
+Of course not. Here, network monitoring systems come into play. In this system, we use software and tools to keep an eye on the activities of the entire network from one place. This system allows us to check the performance, health, and security of the system so that it is easy to stop attacks and unauthorised access. 
+
+### There are two types of network monitoring methods:
+* **Active monitoring:** In this, the administrator checks the device availability or alive status by sending packets.
+  
+                                                         ping  ------>computer 4
+  
+Computer 4 replies with its IP, which means the device is online. 
+
+The administrator uses different protocols or tools for active monitoring. Suppose an administrator uses Wireshark to capture the packets and analyse them actively. He can even check the actual payloads for high-end security purposes. 
+• **Passive Monitoring:** In this monitoring method, the administrator just observes the behavior of the devices, checks health and performance, etc.
+He just checks the system without generating new data packets. The **SNMP** protocol is used to check RAM usage, memory usage, temperature checks, etc, which means this protocol works passively. 
+
+### What does a monitoring system monitor?
+
+Now, we are going to talk about what a monitoring system actually monitors in a network.
+1.	**Alive status:** The system actively checks the online status of the device. It sends data packets to the devices and checks whether these are reachable or not.
+Sends data packets to the devices on the Internet.
+
+                                    ✅️ Router Responds
+                                    ❌️ Server down or not responding
+                                    ✅️ Computers are active
+                                    ✅️ Firewalls work properly
+  	
+#### Here, he will monitor that the server goes near offline or overloaded.
+
+2.	**Bandwidth usage:** Bandwidth means the amount of data passing from a network in a certain time. For example, a WiFi is working on 100 Mbps, which means its bandwidth is **100 Mbps**. The normal usage is 40 Mbps, but suddenly, it goes to **90 Mbps**, which means high bandwidth usage.
+3.	**Throughput:** Throughput means the amount of data that is successfully transferred in a certain frame of time. From the above example, the wifi is **100Mbps,** which means it can transfer **100Mbps** of data in 1 second. But what if the transferred data is 75mbps? This means that some data is lost, which shows the throughput of that network. This will generate an alert for the administrator with low throughput, indicating that data is lost during communication. 
+4.	**Network speed(latency):** This is the time that data takes to move from one node to another. This is normally measured in ms (milliseconds).
+Suppose, normally, the data movement between two devices takes 5 ms, but suddenly, it takes 100ms; that shows a high-latency error on the administrator screen.
+5.	**Security alerts:** Suppose in a network a server gets **20** requests per minute, but suddenly, it gets **1000** requests per minute. In this situation, the monitoring system alerts the administrator to a possible flooding attack. 
+Another example is that if an unauthorised profile is continuously attempting to access the company website admin panel by trying different combinations of the password, which means a possible brute-force attack is being performed without permission. The administrator also gets an alert about this attack.
+
+# Cloud Security:
+Now, we will discuss the most important topic in cybersecurity. To understand the term Cloud Security, first, let's understand Cloud **omputing.**
+
+#### The delivery of computing services like programs, software, online storage, databases, networking, etc., over the internet without building your own personal storage or databases. 
+
+Suppose you want to host a website and store your data online, which is always available and error-free, **24/7**. For this, you should build your own server and physical storage location. You would build a full system that works perfectly, and it will definitely be costly.
+But you have another way which would be safer and easier. In this method, you just rent your own server and storage location from the cloud service providers, and this method is very low cost. You just pay for what you have to use. The big cloud service providers like **AWS ( Amazon Web Services), Google Cloud Platform, Oracle Cloud,** etc, rent out to you a shared, dedicated, or mix of both for your computing system. 
+
+#### Now, let's move on to the term Cloud Security:
+As you know, any service that is connected to the Internet always has security concerns. Similarly, cloud computing, which totally relies on an Internet connection, also has security concerns. Protecting these computing systems, software, and services from unauthorised access and data loss is known as cloud security. 
+
+### Core Technologies of cloud security:
+1.	**IAM (Identity and Access Management):** Before you connect with a cloud service, the platform checks who you are, whether you need this access or not, what type of data you would access, multi-factor authentication and the particular parameters by which you manage things (least privilege). These techniques are used to secure the user data and maintain platform security.
+2.	**Shared Responsibility:** The service providers are responsible for physical security, data storage, networking, and systems maintenance, so you should be able to access the data whenever you need. On the other hand, the user is responsible for role decisions, passwords, user accounts, etc.
+
+In short, both the service provider and user help each other and share responsibility to maintain the end-to-end security of the whole system. 
+
+3.	**Data Encryption:** The data stored in the cloud in backups, online storage, and  physical storage should be encrypted (in a non-readable form) to maintain the security parameters even if someone gets access, unfortunately
+4.	**Multi-factor Authentication (MFA):** The cloud administrator accounts' access should depend on multi-factor authentication. This means a double check by the cloud service when someone tries to get access to the cloud platform according to his role.  
+5.	**Zero Trust Technology:** The most modern cloud platforms work on a zero trust framework. That means every request should treat a new. It should be checked, evaluated, and then given access accordingly. 
+
+### Types of Services Models
+There are three main types of models:
+* **PaaS(Platform as a Service):** Suppose you want to move from one location to another by renting a car. You rent a car from a rental company simply, and you just drive the car to reach the destination; you do not need to worry about the fuel, maintenance, registration, insurance, etc.; you just pay, get a car, set your hand on the steering wheel and enjoy the journey.
+
+Now think about the PaaS (Platform as a Service) in which you get a platform to manage your resources. You just load your code and enjoy the service. The providers give you all the other resources like networking, storage, databases, etc. You just put your code in and get your work done. 
+The best example is the Google App Engine and AWS Elastic Beanstalk.
+
+* **SaaS(Software as a Service):** Understand it by the same example. Let's say you don't want to drive; you do not want to take the headache of anything; you just want to reach your destination. For example, you just get in the car ( like InDrive or Yango service in Pakistan), set your pickup and destination location, and pay according to the distance you have travelled so far.
+* 
+Similarly, you get software as a service from the cloud service provider. You just use the software and don't need to build the backend, code, database, network, etc. You just use the service and pay for what you use. **Netflix** and **Google** Drive are examples of **SaaS.**
+  
+* **IaaS(Infrastructure as a Service):** Suppose you rent an empty house from a rental company. Now you need all the equipment that is needed for living. The rental company is just responsible for the maintenance of the infrastructure of the house. This means you get just the infrastructure and manage all the things inside by yourself.
+* 
+Similarly, you get an empty infrastructure for your services and manage it according to what you need. The providers are just responsible for networking, databases, and physical security of the infrastructure. Like **Amazon EC2** and **Microsoft Azure VMs** are examples of **IaaS.** 
+
+### Types of Cloud Services: 
+* **Private Cloud:** In this, you get a separate cloud platform in which you can manage everything according to your needs. This is normally more costly than the shared cloud and is used by big companies that need a separate private system.
+  
+• **Shared Cloud:** You buy a cloud service like Google Drive storage, which works on the same infrastructure, but the users' data is isolated. 
+
+• **Hybrid Cloud:** Suppose you need private storage for your sensitive data, but you also need a service for normal daily tasks; in this situation, you will buy a hybrid cloud and use it accordingly. 
+
+### Common risks with cloud security:
+* **Weak passwords:** A password that is easy to guess or broken by a simple brute-force attack can lead to a huge data breach. So, we always use strong passwords and multi-factor authentication. 
+* **Inside threats:** Employees sometimes help attackers steal data by clicking on fake emails, visiting a malicious site, etc. So always train the employees and use the least-privilege methods
+* **API attack:** Weak APIs also help attackers attack the whole system by just compromising the API service. Always use an authentic or authorised API for your cloud services.
+
+* **Malicious/malware attacks:** A malicious file or malware can also lead to a compromise of the system for a hacker.
+
+                         --------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
