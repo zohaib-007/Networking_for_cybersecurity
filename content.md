@@ -235,9 +235,8 @@ After dividing it into two networks, it becomes two subnets.
 
 After this, the subnet mask will be:
 
-**First network mask:** 255.255.255.128
-                                                        
-**Second network mask:** 255.255.255.128
+                                                First network mask: 255.255.255.128        
+                                                Second network mask: 255.255.255.128
 
 ### There are two methods of dividing a network into subnets:
 1.	**FLSM:** 
@@ -255,12 +254,11 @@ C offers almost 256 connections or IPs, and the other D and E are used for small
 **Host range:** 
 The number of IPs that are usable for host devices like your router, mobile, printer, etc., is called the host range. In a network, the first IP is the network ID, and the last IP is the broadcast address. All the middle IPs are for the host devices, and this is also the host range.
 
-||
-| :---: |
-**Network ID:** 198.168.1.0 
-**Subnet mask:** 255.255.255.0
-**Host range:** 198.168.1.1 to 198.168.1.255.
-**Broadcast address:** 198.168.1.256 
+
+                                            Network ID: 198.168.1.0 
+                                            Subnet mask: 255.255.255.0
+                                            Host range: 198.168.1.1 to 198.168.1.255.
+                                            Broadcast address: 198.168.1.256 
 
 # Ports, services, and protocols:
 
@@ -270,18 +268,19 @@ This is another important concept in networking and cybersecurity/ethical hackin
 There are almost 0 to 1000 well-known and mostly used ports in a system. From **1025** to **49151**, registered ports are used by applications; for example, port 8080 is an alternative to HTTP, and **3306** is for MySQL Server. The ports from **49152** to **65535** are used by the client side. Like you getting a response from a server. 
 
 
-|Some common ports are:|
-| :---: |
-20     FTP Data
-21     FTP Control
-22     SSH
-23     Telnet
-25     SMTP
-53     DNS
-80     HTTP
-110    POP3
-143    IMAP
-443    HTTPS
+Some common ports are:
+
+                                                Ports     Services
+                                                 20       FTP Data
+                                                 21       FTP Control
+                                                 22       SSH
+                                                 23       Telnet
+                                                 25       SMTP
+                                                 53       DNS
+                                                 80       HTTP
+                                                 110      POP3
+                                                 143      IMAP
+                                                 443      HTTPS
 
 2.	**Protocols:**
 These are sets of rules and regulations used by a port that can send and receive requests. Think of this as a specific language used by a port when communicating with other devices. The number **443** is the port number, and **HTTPS** is the protocol used to load a website securely. Similarly, **TCP** and **UDP** are the transmission protocols used to communicate between devices. For sending mail, we use the **SMTP** protocol, and for converting the domain name to
@@ -306,13 +305,13 @@ For example, we want to send an email to someone, and the process will be:
 **Protocol:** SMTP
 
 **Service:** The mail server is ready for further processing
-|Some common services and protocols are:|
-| :---: |
-Web Server                     ( HTTP)              
-Secure Web Server               (HTTPS)
-SSH Server                      (SSH)
-Mail Server                     (SMTP)
-DNS Server                      (DNS)
+Some common services and protocols are:
+
+                                            Web Server                     HTTP              
+                                            Secure Web Server              HTTPS
+                                            SSH Server                     SSH
+                                            Mail Server                    SMTP
+                                            DNS Server                     DNS
 
 # DNS:
 Now, we will discuss about the DNS, which is essentially a book that maps IP addresses to their corresponding names. DNS stands for Domain Name System. Before DNS, the only way to browse a website or information on the Internet was to use the corresponding IP address to visit the specific site. After the repeated increasing of the website in the whole world, it becomes difficult to remember the IP address of each one. The human mind interacts with pictures and letters easily, but remembering numbers, especially when there are too many, becomes difficult. After that, the system of domain names was introduced, where we gave a unique name to every IP address. To find a domain by its name, we use the Domain Name System(DNS), which is responsible for giving us the IP address of the corresponding domain. 
@@ -532,10 +531,42 @@ A Virtual Private Network **(VPN)** is the process of encrypting data and making
 Suppose you are connected to your local network or to a library network, and you want to access sensitive information from the Internet, such as performing a bank transaction. Here, any other person on the same network can steal your credentials and track your online activities.
 #### The request process will be:
 
+                                            Your Phone --> Internet --> Bank server 
+But here, a VPN helps us and keeps our online records secure by making it encrypted and establishing a secure connection through a tunnel.
 
+After activating a VPN, the request process will be:
 
+            Our device --> VPN --> Encrypt the data --> Pass through a secure tunnel --> VPN Server --> Destination
 
+#### This is how a VPN works, actually.
 
+### Important terminologies related to a VPN:
+1.	**Encryption/decryption of data:** The process of changing readable data into an unreadable form is called encryption, and changing this same unreadable form to readable data is called decryption. A special key is used to decrypt this data. Both processes are handled by the VPN application automatically. 
+This is a similar process on modern social applications, like WhatsApp, which offers end-to-end encryption, which means no one can see your data except the sender and the receiver.
 
+The VPN does the same job; it encrypts our traffic and makes it more secure so that if anyone gets access to the data, it is useless until he gets the decryption key. 
 
+#### Something looks like:
 
+                            Non-encrypted data	           Encrypted Data
+                             
+                             Username: Zohaib             Username: $%19@$!%14
+                             Password: Zohaib1234         Password: %$td_€twi%#
+	                                                                                                            
+#### We need a spatial key to see the encrypted data in its original form. 
+
+2.	**VPN tunnel:** This is the path through which our data moves from source to destination. Think of this like a highway where cars move normally, but a special care-packed in a big container moving towards the destination; no one can see the car inside the container; they see the container only. Similarly, the VPN tunnel wraps our data in a tunnel so that no one on the same network can access it. 
+If a network operator scans the network, they can see data packets moving, but he doesn't access the data inside them. 
+
+#### There are two types of VPN tunnels:
+
+* Split Tunnel: Suppose you want only the specific data to move through the VPN and the rest of the data to move normally. This             means you want to access the company database; the only data packets related to the company database pass through the VPN, and            the other packets move normally without VPN integration. This becomes less secure if the configuration doesn't apply                      accurately. 
+
+With Split Tunnal (VPN):
+
+                         Data Related to the company --> VPN  --> Company server (Destination)
+
+Other traffic on same device:
+
+                         Our data --> ISP --> Destination
+* **Full tunnel:** All of your traffic will move through the secure VPN tunnel
