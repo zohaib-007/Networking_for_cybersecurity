@@ -288,7 +288,7 @@ This is another important concept in networking and cybersecurity/ethical hackin
 There are almost 0 to 1000 well-known and mostly used ports in a system. From **1025** to **49151**, registered ports are used by applications; for example, port 8080 is an alternative to HTTP, and **3306** is for MySQL Server. The ports from **49152** to **65535** are used by the client side. Like you getting a response from a server. 
 
 
-Some common ports are:
+**Some common ports are:**
 
                                                 Ports     Services
                                                  20       FTP Data
@@ -552,7 +552,8 @@ Suppose you are connected to your local network or to a library network, and you
 #### The request process will be:
 
                                             Your Phone --> Internet --> Bank server 
-But here, a VPN helps us and keeps our online records secure by making it encrypted and establishing a secure connection through a tunnel.
+											
+But here, a VPN helps us and keeps our online records secure by encrypting them and establishing a secure connection through a tunnel.
 
 After activating a VPN, the request process will be:
 
@@ -560,7 +561,7 @@ After activating a VPN, the request process will be:
 
 #### This is how a VPN works, actually.
 
-### Important terminologies related to a VPN:
+### Important terminology related to a VPN:
 1.	**Encryption/decryption of data:** The process of changing readable data into an unreadable form is called encryption, and changing this same unreadable form to readable data is called decryption. A special key is used to decrypt this data. Both processes are handled by the VPN application automatically. 
 This is a similar process on modern social applications, like WhatsApp, which offers end-to-end encryption, which means no one can see your data except the sender and the receiver.
 
@@ -805,7 +806,7 @@ Sends data packets to the devices on the Internet.
                                     ✅️ Computers are active
                                     ✅️ Firewalls work properly
   	
-#### Here, he will monitor that the server goes near offline or overloaded.
+#### Here, he will monitor whether the server is going offline or becoming overloaded.
 
 2.	**Bandwidth usage:** Bandwidth means the amount of data passing from a network in a certain time. For example, a WiFi is working on 100 Mbps, which means its bandwidth is **100 Mbps**. The normal usage is 40 Mbps, but suddenly, it goes to **90 Mbps**, which means high bandwidth usage.
 3.	**Throughput:** Throughput means the amount of data that is successfully transferred in a certain frame of time. From the above example, the wifi is **100Mbps,** which means it can transfer **100Mbps** of data in 1 second. But what if the transferred data is 75mbps? This means that some data is lost, which shows the throughput of that network. This will generate an alert for the administrator with low throughput, indicating that data is lost during communication. 
@@ -835,19 +836,19 @@ In short, both the service provider and user help each other and share responsib
 4.	**Multi-factor Authentication (MFA):** The cloud administrator accounts' access should depend on multi-factor authentication. This means a double check by the cloud service when someone tries to get access to the cloud platform according to his role.  
 5.	**Zero Trust Technology:** The most modern cloud platforms work on a zero trust framework. That means every request should treat a new. It should be checked, evaluated, and then given access accordingly. 
 
-### Types of Services Models
+### Types of Service Models
 There are three main types of models:
 * **PaaS(Platform as a Service):** Suppose you want to move from one location to another by renting a car. You rent a car from a rental company simply, and you just drive the car to reach the destination; you do not need to worry about the fuel, maintenance, registration, insurance, etc.; you just pay, get a car, set your hand on the steering wheel and enjoy the journey.
-
-Now think about the PaaS (Platform as a Service) in which you get a platform to manage your resources. You just load your code and enjoy the service. The providers give you all the other resources like networking, storage, databases, etc. You just put your code in and get your work done. 
+  
+Now think about PaaS (Platform as a Service) in which you get a platform to manage your resources. You just load your code and enjoy the service. The providers give you all the other resources like networking, storage, databases, etc. You just put your code in and get your work done. 
 The best example is the Google App Engine and AWS Elastic Beanstalk.
 
 * **SaaS(Software as a Service):** Understand it by the same example. Let's say you don't want to drive; you do not want to take the headache of anything; you just want to reach your destination. For example, you just get in the car ( like InDrive or Yango service in Pakistan), set your pickup and destination location, and pay according to the distance you have travelled so far.
-* 
+ 
 Similarly, you get software as a service from the cloud service provider. You just use the software and don't need to build the backend, code, database, network, etc. You just use the service and pay for what you use. **Netflix** and **Google** Drive are examples of **SaaS.**
   
 * **IaaS(Infrastructure as a Service):** Suppose you rent an empty house from a rental company. Now you need all the equipment that is needed for living. The rental company is just responsible for the maintenance of the infrastructure of the house. This means you get just the infrastructure and manage all the things inside by yourself.
-* 
+
 Similarly, you get an empty infrastructure for your services and manage it according to what you need. The providers are just responsible for networking, databases, and physical security of the infrastructure. Like **Amazon EC2** and **Microsoft Azure VMs** are examples of **IaaS.** 
 
 ### Types of Cloud Services: 
