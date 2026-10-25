@@ -694,14 +694,14 @@ This combines the **2** or more firewalls in a single **LAN** network. This prov
 2.	**Rules check:** After checking the packets, the firewall checks for the rules of data movement. The rules tell the firewall which type of traffic should pass and which type of traffic should not. These can be customised by the administrator and set by default.  
 The default rules:
 
-       • **Allow rule:** Allow the specific traffic and block all the other traffic, incoming or outgoing. This is more secure
+       * **Allow rule:** Allow the specific traffic and block all the other traffic, incoming or outgoing. This is more secure
            Suppose a fire in a firewall the source port **443** is allowed. It allows only **HTTPS** traffic for the network. All the                other traffic, FTP, HTTP, SMTP, etc, will be blocked automatically.
   	
-       • **Deny Rule:** This is the opposite of the Allow rules, which means it denies only the specific traffic and allows all other                traffic to carry about the payloads inside the data packets. This is less secure, that's why.
+       * **Deny Rule:** This is the opposite of the Allow rules, which means it denies only the specific traffic and allows all other                traffic to carry about the payloads inside the data packets. This is less secure, that's why.
   	
-  	   • **Drop rule:** This rejects the traffic without showing any error to the user. 
+  	   * **Drop rule:** This rejects the traffic without showing any error to the user. 
  
-4.	**Action:** After checking the rules, the firewalls allow, drop, and deny the traffic according to the rules.
+3. **Action:** After checking the rules, the firewalls allow, drop, and deny the traffic according to the rules.
 
 
 ### How hackers can abuse the firewalls:
