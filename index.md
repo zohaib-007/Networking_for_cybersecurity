@@ -698,10 +698,8 @@ The default rules:
            Suppose a fire in a firewall the source port **443** is allowed. It allows only **HTTPS** traffic for the network. All the                other traffic, FTP, HTTP, SMTP, etc, will be blocked automatically.
   	
        * **Deny Rule:** This is the opposite of the Allow rules, which means it denies only the specific traffic and allows all other                traffic to carry about the payloads inside the data packets. This is less secure, that's why.
-  	
-  	   * **Drop rule:** This rejects the traffic without showing any error to the user.
+       * **Drop rule:** This rejects the traffic without showing any error to the user.
         
- 
 3. **Action:** After checking the rules, the firewalls allow, drop, and deny the traffic according to the rules.
 
 
